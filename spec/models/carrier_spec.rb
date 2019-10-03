@@ -1,8 +1,7 @@
 RSpec.describe Carrier do
-  fixtures :locations
-  let(:location) { locations(:location) }
+  fixtures :locations, :categories
 
-  fixtures :categories
+  let(:location) { locations(:location) }
   let(:category) { categories(:category) }
 
   it 'is valid with valid attributes' do
@@ -78,5 +77,9 @@ RSpec.describe Carrier do
         expect(subject.cart).to eq cart
       end
     end
+  end
+
+  describe '#checked_out?' do
+
   end
 end
