@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(version: 2019_10_24_023740) do
     t.datetime "updated_at", null: false
     t.bigint "checkin_volunteer_id"
     t.bigint "checkout_volunteer_id"
-    t.bigint "member_id"
+    t.bigint "member_id", null: false
     t.datetime "returned_at"
     t.index ["checkin_volunteer_id"], name: "index_loans_on_checkin_volunteer_id"
     t.index ["checkout_volunteer_id"], name: "index_loans_on_checkout_volunteer_id"
