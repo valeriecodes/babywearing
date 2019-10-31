@@ -10,9 +10,11 @@
   <li>Model: <%= @carrier.model %></li>
   <li>Color: <%= @carrier.color %></li>
   <li>Size: <%= @carrier.size %></li>
+  <li>Safety Link: <%=link_to "Safety Information",  @carrier.safety_link %></li>
   <li>Category: <%= @carrier.category.name %></li>
   <li>Home Location: <%= @carrier.home_location.name %></li>
   <li>Current Location: <%= @carrier.current_location.name %></li>
+  <li>Status: <%= @carrier.status.titleize %>
   <li>Default Loan Length: <%= @carrier.default_loan_length_days %> days</li>
   <% if @carrier.photos.attached? %>
     <li>Photos:
@@ -23,5 +25,10 @@
   <% end %>
 </ul>
 
-<%= link_to 'Edit', edit_carrier_path %>
-<%= link_to 'Delete', @carrier, method: :delete  %>
+<% if policy(@carrier).edit? %>
+  <%= link_to 'Edit', edit_carrier_path %>
+<% end %>
+
+<% if policy(@carrier).destroy? %>
+  <%= link_to 'Delete', @carrier, method: :delete  %>
+<% end %>
