@@ -48,7 +48,7 @@ RSpec.describe Loan do
             checkout_volunteer: volunteer,
           )
 
-          expect(loan.due_date).to eq(Loan::DEFAULT_CHECKOUT_PERIOD_IN_DAYS.days.from_now.utc.to_date)
+          expect(loan.due_date).to eq(carrier.default_loan_length_days.days.from_now.utc.to_date)
         end
     end
   end
